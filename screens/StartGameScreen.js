@@ -1,22 +1,25 @@
 import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
 import React, { useState } from "react";
 import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../constants/colors";
 
-export default function StartGameScreen({onPickNumber}) {
-  const [enteredNumber, setEnteredNumber] = useState('');
+export default function StartGameScreen({ onPickNumber }) {
+  const [enteredNumber, setEnteredNumber] = useState("");
 
-  function numberInputHandler(enteredText){
+  function numberInputHandler(enteredText) {
     setEnteredNumber(enteredText);
   }
 
-  function resetInputHandler(){
-    setEnteredNumber('');
+  function resetInputHandler() {
+    setEnteredNumber("");
   }
 
-  function confirmInputHandler(){
+  function confirmInputHandler() {
     const choosenNumber = parseInt(enteredNumber);
-    if (isNaN(choosenNumber) || choosenNumber<=0 || choosenNumber>99){
-      Alert.alert('Error','Invalid Number',[{text: 'Okey', style: 'destructive', onPress: resetInputHandler}]);
+    if (isNaN(choosenNumber) || choosenNumber <= 0 || choosenNumber > 99) {
+      Alert.alert("Error", "Invalid Number", [
+        { text: "Okey", style: "destructive", onPress: resetInputHandler },
+      ]);
       return;
     }
     onPickNumber(choosenNumber);
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 100,
     marginHorizontal: 24,
-    backgroundColor: "#5451D6",
+    backgroundColor: Colors.primaryBackground,
     borderRadius: 28,
     padding: 16,
   },
@@ -60,8 +63,8 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
     borderBottomWidth: 2,
-    borderBottomColor: "#ffffff",
-    color: "#d6c051",
+    borderBottomColor: Colors.primaryText,
+    color: Colors.inputTextColor,
     fontSize: 32,
     marginVertical: 8,
     fontWeight: "bold",
@@ -69,12 +72,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
   },
-  currentButton:{
-    flex: 1
+  currentButton: {
+    flex: 1,
   },
-  headerText:{
-    color:'#ffffff',
-    fontWeight: 'bold',
-    fontSize: 28
-  }
+  headerText: {
+    color: Colors.primaryText,
+    fontWeight: "bold",
+    fontSize: 28,
+  },
 });

@@ -5,6 +5,7 @@ import GameScreen from "./screens/GameScreen";
 import { LinearGradient } from "expo-linear-gradient";
 import ExpoStatusBar from "expo-status-bar/build/ExpoStatusBar";
 import { useState } from "react";
+import Colors from "./constants/colors";
 
 
 export default function App() {
@@ -36,6 +37,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#442FB2",
+    backgroundColor: Colors.mainBackground,
   },
 });
