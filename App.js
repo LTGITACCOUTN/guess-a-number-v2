@@ -7,7 +7,6 @@ import ExpoStatusBar from "expo-status-bar/build/ExpoStatusBar";
 import { useState } from "react";
 import Colors from "./constants/colors";
 
-
 export default function App() {
   const [pickedNumber,setPickedNumber] = useState();
 
@@ -17,7 +16,7 @@ export default function App() {
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />
   if (pickedNumber){
-    screen = <GameScreen />
+    screen = <GameScreen userNumber={pickedNumber} />
   }
 
   return (
